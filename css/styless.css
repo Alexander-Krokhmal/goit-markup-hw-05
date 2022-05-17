@@ -33,6 +33,10 @@ body > letter-spacing: 0.03em;
   /* Fonts */
   --main-font: 'Roboto', sans-serif;
   --secondary-font: 'Raleway', sans-serif;
+
+  /* Animation */
+  --duration: 250ms;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -162,9 +166,20 @@ img {
   color: var(--accent-color);
 }
 .link.current {
+  position: relative;
   color: var(--accent-color);
 }
+.link.current::after {
+  position: absolute;
+  bottom: 0;
+  content: '';
 
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -285,13 +300,33 @@ img {
   align-items: center;
 }
 .about-list .item {
+  position: relative;
+  content: '';
+
   margin-right: 30px;
 
   background: url(close-up-image-programer-working-his-desk-office_1098-18707.jpg);
-  mix-blend-mode: normal;
+  /* mix-blend-mode: normal; */
 }
 .about-list .item:last-child {
   margin-right: 0;
+}
+.about-text {
+  position: absolute;
+  content: '';
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+  color: var(--white-text-color);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 /* Our team */
 .team {
@@ -577,9 +612,34 @@ img {
 
   background: #ffffff;
 }
-/* .img-container {
-  min-width: 100%;
-} */
+
+.img-container {
+  position: relative;
+  content: '';
+  overflow: hidden;
+}
+
+.portfolio-text {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  padding: 63px 24px;
+  color: var(--white-text-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+
+  transform: translateY(100%);
+  transition: transform var(--duration) var(--timing-function);
+}
+
 .work-examples-container {
   border-left: 1px solid #eeeeee;
   border-right: 1px solid #eeeeee;
@@ -607,4 +667,8 @@ img {
 .work-examples .link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.work-examples .item:hover .portfolio-text {
+  transform: translateY(0);
 }
