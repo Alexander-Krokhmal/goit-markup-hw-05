@@ -381,7 +381,10 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  /* gap: 30px; */
+}
+.clients-item:not(:last-child) {
+  margin-right: 30px;
 }
 .clients-item {
   /* display: flex;
@@ -461,6 +464,7 @@ img {
 .footer-network-title {
   margin-bottom: 20px;
 
+  display: block;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.14;
