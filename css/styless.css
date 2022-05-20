@@ -620,6 +620,7 @@ img {
   /* width: calc(100%-60px) / 3; */
 
   background: #ffffff;
+  transition: box-shadow var(--duration) var(--timing-function);
 }
 
 .img-container {
@@ -676,8 +677,8 @@ img {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.work-examples .item:hover .portfolio-text,
-.work-examples .item:focus .portfolio-text {
+.work-examples .link:hover .portfolio-text,
+.work-examples .link:focus .portfolio-text {
   transform: translateY(0);
 }
 
